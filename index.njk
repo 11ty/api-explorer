@@ -65,7 +65,7 @@ permalink:
 
 {% if eleventy.serverless.query.url %}
   <details open>
-    <summary>Small size (default)</summary>
+    <summary>Small viewport (default)</summary>
 
     {% set html %}
 <img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/small/"
@@ -87,7 +87,7 @@ permalink:
   </details>
 
   <details>
-    <summary>Medium size</summary>
+    <summary>Medium viewport</summary>
     {% set html %}
 <img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/medium/"
      alt="Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
@@ -107,7 +107,7 @@ permalink:
   </details>
   
   <details>
-    <summary>Large size</summary>
+    <summary>Large viewport</summary>
     {% set html %}
 <img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/large/"
      alt="Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
@@ -127,7 +127,7 @@ permalink:
   </details>
 
   <details>
-    <summary>OpenGraph image size</summary>
+    <summary>OpenGraph viewport</summary>
     {% set html %}
 <img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/opengraph/"
      alt="OpenGraph image sized Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
