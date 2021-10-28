@@ -4,6 +4,8 @@
 
 https://api-explorer.11ty.dev/
 
+## Services
+
 * [IndieWeb Avatar `api-indieweb-avatar`](https://github.com/11ty/api-indieweb-avatar)
 * [OpenGraph Image `api-opengraph-image`](https://github.com/11ty/api-opengraph-image)
 * [Screenshot `api-screenshot`](https://github.com/11ty/api-screenshot)
