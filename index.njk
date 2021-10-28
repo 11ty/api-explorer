@@ -17,33 +17,49 @@ permalink:
   <p>
     <code>{{ indieavatarUrl }}</code>
   </p>
-  <img src="{{ indieavatarUrl }}" alt="Indieweb Avatar for {{ eleventy.serverless.query.url }}">
+  <img src="{{ indieavatarUrl }}" alt="Indieweb Avatar for {{ eleventy.serverless.query.url }}" decoding="async">
 
-  <h2>Screenshot (Small size)</h2>
-  {% set screenshotSmallUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/small/{% endset %}
-  <p>
-    <code>{{ screenshotSmallUrl }}</code>
-  </p>
-  <img src="{{ screenshotSmallUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}">
+  <h2>Screenshots</h2>
+  <details open>
+    <summary>Small size</summary>
+    {% set screenshotSmallUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/small/{% endset %}
+    <p>
+      <code>{{ screenshotSmallUrl }}</code>
+    </p>
+    <img src="{{ screenshotSmallUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async">
+  </details>
 
-  <h2>Screenshot (Medium size)</h2>
-  {% set screenshotMediumUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
-  <p>
-    <code>{{ screenshotMediumUrl }}</code>
-  </p>
-  <img src="{{ screenshotMediumUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}">
+  <details>
+    <summary>Medium size</summary>
+    {% set screenshotMediumUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
+    <p>
+      <code>{{ screenshotMediumUrl }}</code>
+    </p>
+    <img src="{{ screenshotMediumUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
+  </details>
+  
+  <details>
+    <summary>Large size</summary>
+    {% set screenshotLargeUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/large/{% endset %}
+    <p>
+      <code>{{ screenshotLargeUrl }}</code>
+    </p>
+    <img src="{{ screenshotLargeUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
+  </details>
 
-  <h2>Screenshot (OpenGraph image size)</h2>
-  {% set screenshotOgUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/opengraph/{% endset %}
-  <p>
-    <code>{{ screenshotOgUrl }}</code>
-  </p>
-  <img src="{{ screenshotOgUrl }}" alt="Opengraph sized Screenshot of {{ eleventy.serverless.query.url }}">
+  <details>
+    <summary>OpenGraph image size</summary>
+    {% set screenshotOgUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/opengraph/{% endset %}
+    <p>
+      <code>{{ screenshotOgUrl }}</code>
+    </p>
+    <img src="{{ screenshotOgUrl }}" alt="Opengraph sized Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
+  </details>
 
   <h2>Opengraph Image</h2>
   {% set ogUrl %}https://v1.opengraph-image.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
   <p>
     <code>{{ ogUrl }}</code>
   </p>
-  <img src="{{ ogUrl }}" alt="Opengraph image for {{ eleventy.serverless.query.url }}">
+  <img src="{{ ogUrl }}" alt="Opengraph image for {{ eleventy.serverless.query.url }}" decoding="async">
 {% endif %}
