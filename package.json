@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "npx @11ty/eleventy --serve --quiet",
-    "build": "npx @11ty/eleventy --quiet"
+    "build": "npx @11ty/eleventy --quiet",
+    "build-prod": "mkdir _site && npx @11ty/eleventy"
   },
   "keywords": [],
   "license": "MIT",
