@@ -46,68 +46,19 @@ permalink:
 
 <h2>OpenGraph Image <a href="https://github.com/11ty/api-opengraph-image"><code>11ty/api-opengraph-image</code></a></h2>
 {% if eleventy.serverless.query.url %}
-  <details open>
-    <summary>Small size</summary>
+  <p>This is using <code>&lt;picture&gt;</code> with multiple formats and image sizes. Make sure you set the <code>sizes</code> attribute correctly so the browser loads the correct one!</p>
 
-    {% set html %}
-<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/small/"
-     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
-     width="375"
-     height="197"
-     decoding="async"
-     loading="lazy">
-    {% endset %}
+  {% set html %}
+  {% opengraphHtml eleventy.serverless.query.url %}
+  {% endset %}
 
-    <div class="demo">
-      {{ html | safe }}
-    </div>
-
-    {% highlight "html" %}
+  <div class="demo">
     {{ html | safe }}
-    {% endhighlight %}
-  </details>
+  </div>
 
-  <details>
-    <summary>Medium size</summary>
-
-    {% set html %}
-<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/medium/"
-     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
-     width="650"
-     height="341"
-     decoding="async"
-     loading="lazy">
-    {% endset %}
-
-    <div class="demo">
-      {{ html | safe }}
-    </div>
-
-    {% highlight "html" %}
-    {{ html | safe }}
-    {% endhighlight %}
-  </details>
-
-  <details>
-    <summary>Default size</summary>
-
-    {% set html %}
-<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/"
-     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
-     width="1200"
-     height="630"
-     decoding="async"
-     loading="lazy">
-    {% endset %}
-
-    <div class="demo">
-      {{ html | safe }}
-    </div>
-
-    {% highlight "html" %}
-    {{ html | safe }}
-    {% endhighlight %}
-  </details>
+  {% highlight "html" %}
+  {{ html | safe }}
+  {% endhighlight %}
 {% endif %}
 
 <h2>Screenshot <a href="https://github.com/11ty/api-screenshot"><code>11ty/api-screenshot</code></a></h2>
