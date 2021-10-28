@@ -11,9 +11,13 @@ permalink:
   <button type="submit">Go</button>
 </form>
 
-{% if eleventy.serverless.query.url %}
-<p>Navigate to <a href="{{ eleventy.serverless.query.url | forceescape }}"><code>{{ eleventy.serverless.query.url | forceescape }}</code></a></p>
-{% endif %}
+<p>
+  Built with <a href="https://www.11ty.dev/docs/plugins/serverless/">Eleventy Serverless</a>.
+
+  {% if eleventy.serverless.query.url %}
+  Navigate to <a href="{{ eleventy.serverless.query.url | forceescape }}"><code>{{ eleventy.serverless.query.url | forceescape }}</code></a>
+  {% endif %}
+</p>
 
 <h2>IndieWeb Avatar <a href="https://github.com/11ty/api-indieweb-avatar"><code>11ty/api-indieweb-avatar</code></a></h2>
 
@@ -191,4 +195,6 @@ permalink:
 
 <h2>Sparkline <a href="https://github.com/11ty/api-sparkline"><code>11ty/api-sparkline</code></a></h2>
 
+{% if eleventy.serverless.query.url %}
 <p>This API is does not have a <code>url</code> param—it’s included here for completeness.</p>
+{% endif %}
