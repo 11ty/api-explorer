@@ -19,10 +19,17 @@
 		details {
 			margin-bottom: 2em;
 		}
+		h1 img {
+			width: 0.8125em; /* 13px /16 */
+			height: 0.8125em; /* 13px /16 */
+			border-radius: 0.8125em; /* 13px /16 */
+			vertical-align: baseline;
+		}
 		</style>
 	</head>
 	<body>
-		<h1>Eleventy API Explorer</h1>
+		{% set eleventyLogoUrl %}https://v1.indieweb-avatar.11ty.dev/{{ "https://www.11ty.dev/" | urlencode }}/{% endset %}
+		<h1><img src="{{ eleventyLogoUrl }}" alt="Eleventy Logo" width="60" height="60"> Eleventy API Explorer</h1>
 		<main>
 			{{ content | safe }}
 		</main>
