@@ -6,60 +6,189 @@ permalink:
 <form action="/">
   <label>
     Url:
-    <input type="url" name="url" required value="{{ eleventy.serverless.query.url }}">
+    <input type="url" name="url" required value="{% if eleventy.serverless.query.url %}{{ eleventy.serverless.query.url | forceescape }}{% else %}https://{% endif %}">
   </label>
   <button type="submit">Go</button>
 </form>
 
 {% if eleventy.serverless.query.url %}
-  <h2>IndieWeb Avatar</h2>
-  {% set indieavatarUrl %}https://v1.indieweb-avatar.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
-  <p>
-    <code>{{ indieavatarUrl }}</code>
-  </p>
-  <img src="{{ indieavatarUrl }}" alt="Indieweb Avatar for {{ eleventy.serverless.query.url }}" decoding="async">
+<p>Navigate to <a href="{{ eleventy.serverless.query.url | forceescape }}"><code>{{ eleventy.serverless.query.url | forceescape }}</code></a></p>
+{% endif %}
 
-  <h2>Screenshots</h2>
+<h2>IndieWeb Avatar <a href="https://github.com/11ty/api-indieweb-avatar"><code>11ty/api-indieweb-avatar</code></a></h2>
+
+
+{% if eleventy.serverless.query.url %}
+  {% set html %}
+<img src="https://v1.indieweb-avatar.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/"
+     alt="IndieWeb avatar for {{ eleventy.serverless.query.url | forceescape }}"
+     width="60"
+     height="60"
+     decoding="async"
+     loading="lazy">
+  {% endset %}
+
+  <div class="demo">
+    {{ html | safe }}
+  </div>
+
+  {% highlight "html" %}
+  {{ html | safe }}
+  {% endhighlight %}
+{% endif %}
+
+<h2>OpenGraph Image <a href="https://github.com/11ty/api-opengraph-image"><code>11ty/api-opengraph-image</code></a></h2>
+{% if eleventy.serverless.query.url %}
   <details open>
     <summary>Small size</summary>
-    {% set screenshotSmallUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/small/{% endset %}
-    <p>
-      <code>{{ screenshotSmallUrl }}</code>
-    </p>
-    <img src="{{ screenshotSmallUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async">
+
+    {% set html %}
+<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/small/"
+     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
+     width="375"
+     height="197"
+     decoding="async"
+     loading="lazy">
+    {% endset %}
+
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
   </details>
 
   <details>
     <summary>Medium size</summary>
-    {% set screenshotMediumUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
-    <p>
-      <code>{{ screenshotMediumUrl }}</code>
-    </p>
-    <img src="{{ screenshotMediumUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
+
+    {% set html %}
+<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/medium/"
+     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
+     width="650"
+     height="341"
+     decoding="async"
+     loading="lazy">
+    {% endset %}
+
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
+  </details>
+
+  <details>
+    <summary>Default size</summary>
+
+    {% set html %}
+<img src="https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/"
+     alt="OpenGraph image supplied by {{ eleventy.serverless.query.url | forceescape }}"
+     width="1200"
+     height="630"
+     decoding="async"
+     loading="lazy">
+    {% endset %}
+
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
+  </details>
+{% endif %}
+
+<h2>Screenshot <a href="https://github.com/11ty/api-screenshot"><code>11ty/api-screenshot</code></a></h2>
+
+{% if eleventy.serverless.query.url %}
+  <details open>
+    <summary>Small size (default)</summary>
+
+    {% set html %}
+<img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/small/"
+     alt="Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
+     decoding="async"
+     width="375"
+     height="375"
+     decoding="async"
+     loading="lazy">
+    {% endset %}
+
+    <div class="demo">
+    {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
+  </details>
+
+  <details>
+    <summary>Medium size</summary>
+    {% set html %}
+<img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/medium/"
+     alt="Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
+     width="650"
+     height="650"
+     decoding="async"
+     loading="lazy">
+  {% endset %}
+
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
   </details>
   
   <details>
     <summary>Large size</summary>
-    {% set screenshotLargeUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/large/{% endset %}
-    <p>
-      <code>{{ screenshotLargeUrl }}</code>
-    </p>
-    <img src="{{ screenshotLargeUrl }}" alt="Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
+    {% set html %}
+<img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/large/"
+     alt="Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
+     width="1024"
+     height="1024"
+     decoding="async"
+     loading="lazy">
+  {% endset %}
+
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
   </details>
 
   <details>
     <summary>OpenGraph image size</summary>
-    {% set screenshotOgUrl %}https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/opengraph/{% endset %}
-    <p>
-      <code>{{ screenshotOgUrl }}</code>
-    </p>
-    <img src="{{ screenshotOgUrl }}" alt="Opengraph sized Screenshot of {{ eleventy.serverless.query.url }}" decoding="async" loading="lazy">
-  </details>
+    {% set html %}
+<img src="https://v1.screenshot.11ty.dev/{{ eleventy.serverless.query.url | urlencode | forceescape }}/opengraph/"
+     alt="OpenGraph image sized Screenshot of {{ eleventy.serverless.query.url | forceescape }}"
+     width="1200"
+     height="630"
+     decoding="async"
+     loading="lazy">
+  {% endset %}
 
-  <h2>Opengraph Image</h2>
-  {% set ogUrl %}https://v1.opengraph.11ty.dev/{{ eleventy.serverless.query.url | urlencode }}/medium/{% endset %}
-  <p>
-    <code>{{ ogUrl }}</code>
-  </p>
-  <img src="{{ ogUrl }}" alt="Opengraph image for {{ eleventy.serverless.query.url }}" decoding="async">
+    <div class="demo">
+      {{ html | safe }}
+    </div>
+
+    {% highlight "html" %}
+    {{ html | safe }}
+    {% endhighlight %}
+  </details>
 {% endif %}
+
+<h2>Sparkline <a href="https://github.com/11ty/api-sparkline"><code>11ty/api-sparkline</code></a></h2>
+
+<p>This API is does not have a <code>url</code> param—it’s included here for completeness.</p>

@@ -19,17 +19,47 @@
 		details {
 			margin-bottom: 2em;
 		}
-		h1 img {
+		a[href],
+		a[href]:visited {
+			color: inherit;
+		}
+		summary {
+			margin-bottom: .5em;
+		}
+
+		.header-logo {
 			width: 0.8125em; /* 13px /16 */
 			height: 0.8125em; /* 13px /16 */
 			border-radius: 0.8125em; /* 13px /16 */
 			vertical-align: baseline;
 		}
+
+		.demo {
+			padding: 1em;
+			border: 2px solid lightblue;
+			border-bottom: 0;
+			border-radius: .3em .3em 0 0;
+		}
+		.demo img {
+			max-width: 100%;
+			height: auto;
+		}
+		.demo.demo + pre {
+			margin-top: 0;
+			border: 2px solid lightblue;
+			border-top: 0;
+			border-radius: 0 0 .3em .3em;
+			background-color: transparent;
+		}
 		</style>
+		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-solarizedlight.css" rel="stylesheet" media="print" onload="this.media='all'">
+		<noscript>
+			<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-solarizedlight.css" rel="stylesheet">
+		</noscript>
 	</head>
 	<body>
 		{% set eleventyLogoUrl %}https://v1.indieweb-avatar.11ty.dev/{{ "https://www.11ty.dev/" | urlencode }}/{% endset %}
-		<h1><img src="{{ eleventyLogoUrl }}" alt="Eleventy Logo" width="60" height="60"> Eleventy API Explorer</h1>
+		<h1><img src="{{ eleventyLogoUrl }}" alt="Eleventy Logo" width="60" height="60" class="header-logo"> Eleventy API Explorer</h1>
 		<main>
 			{{ content | safe }}
 		</main>
