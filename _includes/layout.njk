@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<title>Eleventy API Explorer</title>
+		<style>
+		body {
+			font-family: system-ui, sans-serif;
+		}
+		input,
+		button {
+			font-family: inherit;
+		}
+		input {
+			min-width: 25em;
+		}
+		</style>
+	</head>
+	<body>
+		<h1>Eleventy API Explorer</h1>
+		<main>
+			{{ content | safe }}
+		</main>
+	</body>
+</html>

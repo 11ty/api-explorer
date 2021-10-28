@@ -1,0 +1,14 @@
+{
+  "name": "eleventy-api-explorer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve --quiet",
+    "build": "npx @11ty/eleventy --quiet"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "1.0.0-beta.3"
+  }
+}

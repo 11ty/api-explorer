@@ -1,0 +1,5 @@
+node_modules
+package-lock.json
+_site
+netlify/functions/dynamic/**
+!netlify/functions/dynamic/index.js
