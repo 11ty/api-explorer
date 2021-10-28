@@ -32,6 +32,7 @@
 			height: 0.8125em; /* 13px /16 */
 			border-radius: 0.8125em; /* 13px /16 */
 			vertical-align: baseline;
+			margin-right: .25em;
 		}
 
 		.demo {
@@ -59,7 +60,9 @@
 	</head>
 	<body>
 		{% set eleventyLogoUrl %}https://v1.indieweb-avatar.11ty.dev/{{ "https://www.11ty.dev/" | urlencode }}/{% endset %}
-		<h1><img src="{{ eleventyLogoUrl }}" alt="Eleventy Logo" width="60" height="60" class="header-logo"> Eleventy API Explorer</h1>
+		<header>
+			<h1><a href="/"><img src="{{ eleventyLogoUrl }}" alt="Eleventy Logo" width="60" height="60" class="header-logo">Eleventy API Explorer</a></h1>
+		</header>
 		<main>
 			{{ content | safe }}
 		</main>
