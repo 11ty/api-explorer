@@ -3,21 +3,25 @@ layout: layout.njk
 permalink:
   dynamic: "/"
 ---
+<p>
+  Built with <a href="https://www.11ty.dev/docs/plugins/serverless/">Eleventy Serverless</a>.
+</p>
+
 <form action="/">
   <label>
     Url:
     <input type="url" name="url" required value="{% if eleventy.serverless.query.url %}{{ eleventy.serverless.query.url | forceescape }}{% else %}https://{% endif %}">
   </label>
   <button type="submit">Go</button>
-</form>
-
-<p>
-  Built with <a href="https://www.11ty.dev/docs/plugins/serverless/">Eleventy Serverless</a>.
+  <a href="/?url={{ "https://www.zachleat.com/web/lighthouse-deception/" | urlencode }}">Sample demo</a>
 
   {% if eleventy.serverless.query.url %}
-  Navigate to <a href="{{ eleventy.serverless.query.url | forceescape }}"><code>{{ eleventy.serverless.query.url | forceescape }}</code></a>
+  <p>
+    Navigate to <a href="{{ eleventy.serverless.query.url | forceescape }}"><code>{{ eleventy.serverless.query.url | forceescape }}</code></a>
+  </p>
   {% endif %}
-</p>
+</form>
+
 
 <h2>IndieWeb Avatar <a href="https://github.com/11ty/api-indieweb-avatar"><code>11ty/api-indieweb-avatar</code></a></h2>
 
@@ -194,6 +198,31 @@ permalink:
 
 <h2>Sparkline <a href="https://github.com/11ty/api-sparkline"><code>11ty/api-sparkline</code></a></h2>
 
-{% if eleventy.serverless.query.url %}
-<p>This API is does not have a <code>url</code> param—it’s included here for completeness.</p>
+<form action="/">
+  <label>
+    Comma-separated numbers:
+    <input type="text" name="sparkline" required value="{{ eleventy.serverless.query.sparkline | forceescape }}">
+  </label>
+  <button type="submit">Go</button>
+
+  <a href="/?sparkline=41,25,9,12,10,6,12,14,19,17,23,30,36,21,25">Sample demo</a>
+</form>
+
+{% if eleventy.serverless.query.sparkline %}
+{% set html %}
+<img src="https://v1.sparkline.11ty.dev/120x30/{{ eleventy.serverless.query.sparkline | forceescape }}/"
+     alt="Sparkline with values: {{ eleventy.serverless.query.sparkline | forceescape }}"
+     width="120"
+     height="30"
+     decoding="async"
+     loading="lazy">
+{% endset %}
+
+  <div class="demo">
+    {{ html | safe }}
+  </div>
+
+  {% highlight "html" %}
+  {{ html | safe }}
+  {% endhighlight %}
 {% endif %}
