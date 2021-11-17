@@ -5,6 +5,10 @@ const Image = require("@11ty/eleventy-img");
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  eleventyConfig.addPassthroughCopy({
+		"node_modules/@11ty/logo/img/logo-96x96.png": "img/favicon.png"
+	});
+
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "dynamic",
     functionsDir: "./netlify/functions/",
